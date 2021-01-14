@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrangeRooms">
+        <item>학과순</item>
+        <item>학년순</item>
+        <item>인원 많은 순</item>
+        <item>인원 적은 순</item>
+    </string-array>
+</resources>
