@@ -16,8 +16,9 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="-1dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
+            android:padding="5dp"
             android:scaleType="centerInside"
             android:src="@drawable/title_logo" />
 
@@ -76,14 +77,55 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txtHomeMenu"
+            android:id="@+id/txtbaro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/noticeLinearLayout"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/border_layout_2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
             android:padding="10dp"
-            android:text="이번 주"
+            android:text="바로가기"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/txtbaro"
+            android:id="@+id/baroLayout">
+
+            <ImageView
+                android:id="@+id/imgSubmitReport"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/baro_report" />
+
+            <ImageView
+                android:id="@+id/imgKakaoTalk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/baro_kakao" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtHomeMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/baroLayout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="체크 리스트"
             android:textColor="#000000"
             android:textSize="17dp"
             android:textStyle="bold" />
@@ -91,31 +133,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/thisWeekRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:paddingLeft="15dp"
-            android:layout_below="@id/txtHomeMenu"/>
-
-        <TextView
-            android:id="@+id/txtHomeMenu2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/thisWeekRecyclerView"
+            android:layout_height="300dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/border_layout_2"
-            android:padding="10dp"
-            android:text="다음 주"
-            android:textColor="#000000"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/nextWeekRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:paddingLeft="15dp"
-            android:layout_below="@id/txtHomeMenu2">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_below="@id/txtHomeMenu"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -128,12 +150,6 @@
             android:clickable="true"
             android:src="@drawable/ic_add_black_24dp"
             app:backgroundTint="@color/yellow"/>
-
-        <TextView
-            android:id="@+id/txtTest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
 
     </RelativeLayout>
 

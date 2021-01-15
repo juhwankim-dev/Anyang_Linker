@@ -18,13 +18,12 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/dialogEt"
+        android:id="@+id/editTxtMemo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:text="기본값이 있어야하나?"
         android:hint="텍스트를 입력해주세요."
         android:inputType="textPersonName" />
 </LinearLayout>

@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.anyang_linker">
     <!-- 인터넷 접속 허락 받기 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 전화 걸기 허락 받기 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragments.home.memo.PopupActivity"> </activity>
-        <activity android:name=".fragments.home.memo.MemoActivity" />
+        <activity android:name=".fragments.study.DepartmentSearchActivity"></activity>
+        <activity android:name=".fragments.study.StudySearchResultListActivity" />
+        <activity android:name=".fragments.setting.CertifyUnivActivity" />
+        <activity android:name=".fragments.setting.PushSettingActivity" />
+        <activity android:name=".fragments.study.TimeSelectActivity" />
+        <activity android:name=".fragments.home.WebViewActivity" />
+        <activity android:name=".fragments.study.AllStudiesActivity" />
+        <activity android:name=".fragments.home.memo.TodoActivity" />
         <activity android:name=".fragments.home.AllNoticesActivity" /> <!-- Splash Activity -->
         <activity
             android:name=".SplashActivity"

@@ -1,61 +1,75 @@
 package com.example.anyang_linker.fragments.home
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.anyang_linker.R
-import com.example.anyang_linker.fragments.home.memo.MemoList
+import com.example.anyang_linker.fragments.home.memo.AppDatabase
+import com.example.anyang_linker.fragments.home.memo.Todo
+import kotlinx.android.synthetic.main.activity_todo.view.*
 import kotlinx.android.synthetic.main.today_list_item.view.*
 
-/*
-class ThisWeekAdapter : RecyclerView.Adapter<ThisWeekAdapter.ThisWeekViewHolder>() {
-
-    val memos = arrayListOf<MemoList>()
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ThisWeekViewHolder {
-        val view = LayoutInflater.from().inflate(R.layout.today_list_item, parent, false)
-        return ThisWeekViewHolder(view)
-    }
-
-    override fun getItemCount(): Int {
-        return memos.size
-    }
-
-    override fun onBindViewHolder(holder: ThisWeekAdapter.ThisWeekViewHolder, position: Int) {
-        holder.txtToDoToday.text = memos.get(0)
-    }
-
-    inner class ThisWeekViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder
-        (LayoutInflater.from(parent.context).inflate(R.layout.today_list_item, parent, false)){
-
-        val isChecked_Today = itemView.checkboxToday.isChecked()
-        val txtToDoToday = itemView.txtToDoToday
-    }
-}*/
-
-class ThisWeekAdapter(val cats: List<MemoList>) :
+class ThisWeekAdapter(val todos: List<Todo>) :
     RecyclerView.Adapter<ThisWeekAdapter.Holder>() {
-
-    override fun getItemCount(): Int {
-        return cats.size
-    }
-
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //val nameTv = itemView?.findViewById<TextView>(R.id.itemName)
-
-/*        fun bind(cat: Cat) {
-            nameTv?.text = cat.catName
-        }*/
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.today_list_item, parent, false)
+
         return Holder(view)
     }
 
+    override fun getItemCount(): Int {
+        return todos.size
+    }
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        //holder?.bind(cats[position])
+        holder.checkboxToday.isChecked = todos.get(position).ischecked
+        holder.txtToDoToday.text = todos.get(position).title
+
+        textStatueSetting(holder) // 체크박스 클릭시 텍스트 변화주기
+
+        /* ------------------------------ DB 읽어오기 -------------------------------*/
+        val db = Room.databaseBuilder(
+            holder.checkboxToday.context,
+            AppDatabase::class.java, "database-name"
+        ).allowMainThreadQueries()
+            .build()
+        /* ------------------------------ DB 읽어오기 -------------------------------*/
+
+        // 체크박스 클릭 리스너
+        holder.checkboxToday.setOnCheckedChangeListener { buttonView, isChecked ->
+            textStatueSetting(holder) // 체크박스 클릭시 텍스트 변화주기
+
+            if(isChecked){ // ischecked 값 업데이트 하기
+                db.todoDao().updateByischecked(true, todos.get(position).title)
+            }
+
+            else{
+                db.todoDao().updateByischecked(false, todos.get(position).title)
+            }
+        }
+    }
+
+    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val checkboxToday = itemView.checkboxToday
+        val txtToDoToday = itemView.txtToDoToday
+    }
+
+    // 체크박스 클릭시 텍스트 변화주기
+    fun textStatueSetting(holder : ThisWeekAdapter.Holder){
+        if(holder.checkboxToday.isChecked){
+            holder.txtToDoToday.setPaintFlags(holder.txtToDoToday.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG) // 취소선 긋기
+            holder.txtToDoToday.setTextColor(ContextCompat.getColor(holder.checkboxToday.context, R.color.colorGray))
+        }
+        else{
+            holder.txtToDoToday.setPaintFlags(0)
+            holder.txtToDoToday.setTextColor(ContextCompat.getColor(holder.checkboxToday.context, R.color.colorBlack))
+        }
     }
 }

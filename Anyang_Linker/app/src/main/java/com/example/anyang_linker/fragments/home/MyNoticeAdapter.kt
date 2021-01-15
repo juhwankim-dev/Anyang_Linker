@@ -1,7 +1,10 @@
 package com.example.anyang_linker.fragments.home
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.anyang_linker.SplashActivity.Companion.notices
 import com.example.anyang_linker.R
@@ -18,6 +21,20 @@ class MyNoticeAdapter : RecyclerView.Adapter<MyNoticeAdapter.MyNoticeViewHolder>
     override fun onBindViewHolder(holder: MyNoticeAdapter.MyNoticeViewHolder, position: Int) {
         holder.title.text = notices.get(position).title
         holder.info.text = notices.get(position).info
+
+ /*       var url = "http://www.anyang.ac.kr/bbs/boardView.do?bsIdx=61&bIdx="
+        url += notices.get(position).url
+        url += "&page=1&menuId=23&bcIdx=0&searchCondition=SUBJECT&searchKeyword="*/
+
+        holder.itemView.setOnClickListener {v->
+            //var goUnivHomepage = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            var goUnivHomepage = Intent(v.context, WebViewActivity::class.java)
+            var url = "http://www.anyang.ac.kr/bbs/boardView.do?bsIdx=61&bIdx=" +
+                    notices.get(position).url + "&page=1&menuId=23&bcIdx=0&searchCondition=SUBJECT&searchKeyword="
+
+            goUnivHomepage.putExtra("url", url)
+            v.context.startActivity(goUnivHomepage);
+        }
     }
 
     inner class MyNoticeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder

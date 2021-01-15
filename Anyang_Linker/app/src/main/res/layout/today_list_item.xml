@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    android:background="@drawable/border_layout_only_bottom">
+    android:background="@drawable/border_layout_box">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/colorBlack"
             android:layout_marginLeft="5dp"/>
     </LinearLayout>
 

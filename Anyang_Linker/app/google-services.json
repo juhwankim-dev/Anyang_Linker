@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425384618094",
+    "firebase_url": "https://anyanglinker.firebaseio.com",
+    "project_id": "anyanglinker",
+    "storage_bucket": "anyanglinker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425384618094:android:40d47e5caa7a830c515e7f",
+        "android_client_info": {
+          "package_name": "com.example.anyang_linker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425384618094-mct9hrprco37pvlhjkfo25ptvn066arm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anyang_linker",
+            "certificate_hash": "7f86817b191967bdaf11da9b47b18625cd0b1745"
+          }
+        },
+        {
+          "client_id": "425384618094-2bb3soaq13sdr9ecorc5033paj607qt8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2E2TDAwf4D259KgjiKhUIsbiYpWtBJOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425384618094-2bb3soaq13sdr9ecorc5033paj607qt8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,8 +20,8 @@ class SplashActivity : AppCompatActivity() {
     val SPLASH_VIEW_TIME: Long = 1000 //2초간 스플래시 화면을 보여줌 (ms)
 
     companion object{
-        val notices = arrayListOf<NoticeList>()
-        var mainNotice = "Error: Page 404"
+        val notices = arrayListOf<NoticeList>() // 공지사항 리스트
+        var mainNotice = "Error: Page 404" // 홈 화면에서 보여줄 메인공지 1개짜리
     }
     private val BASEURL = "http://www.anyang.ac.kr/bbs/ajax/" // 베이스 URL
     private var jsonPlaceHolderApi: JsonPlaceHolderApi? = null // JSON 사용하려면 적어야하는거? API
@@ -90,7 +90,7 @@ class SplashActivity : AppCompatActivity() {
                 {
                     /* 응답이 성공적이지 않을때 할 행동, 만약 응답이 없었다면 response에는 코드가 저장되게 된다. (에러 404)*/
                     if (!response.isSuccessful()) {
-                        notices.add(0, NoticeList("페이지를 표시할 수 없습니다.", response.code().toString()))
+                        notices.add(0, NoticeList("페이지를 표시할 수 없습니다.", response.code().toString(), " "))
                         //txt.text = "code: " + response.code()
                         return
                     }
@@ -109,14 +109,18 @@ class SplashActivity : AppCompatActivity() {
                         var position = 0
 
                         for (post in postResponse.resultList) {
-                            notices.add(position++, NoticeList(post.SUBJECT.toString(), post.WRITER.toString() + "   |   " + post.WRITE_DATE2.toString()))
+                            var title = post.SUBJECT.toString()
+                            var info = post.WRITER.toString() + "   |   " + post.WRITE_DATE2.toString()
+                            var url = post.B_IDX.toString()
+                            notices.add(NoticeList(title, info, url))
+                            position++
                         }
                     }
                 }
 
                 /* 응답을 하지 않는다면 */
                 override fun onFailure(call: Call<Result?>, t: Throwable) {
-                    notices.add(0, NoticeList("페이지를 표시할 수 없습니다.", "사이트 관리자에게 문의하세요."))
+                    notices.add(0, NoticeList("페이지를 표시할 수 없습니다.", "사이트 관리자에게 문의하세요.", " "))
                     //txt.text = t.message
                 }
             })

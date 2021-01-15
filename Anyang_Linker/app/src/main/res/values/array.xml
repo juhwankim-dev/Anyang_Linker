@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="arrangeRooms">
-        <item>학과순</item>
-        <item>학년순</item>
-        <item>인원 많은 순</item>
-        <item>인원 적은 순</item>
+    <string-array name="array_grade">
+        <item>학년을 선택하세요</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="array_department">
+        <item>신학과</item>
+        <item>기독교교육과</item>
+        <item>국어국문학과</item>
+        <item>영어언어문화전공</item>
+        <item>러시아언어문화전공</item>
+        <item>중국언어문화전공</item>
+        <item>유아교육과</item>
+        <item>공연예술전공</item>
+        <item>음악전공</item>
+        <item>글로벌경영학과</item>
+        <item>관광경영학과</item>
+        <item>행정학과</item>
+        <item>공공행정학과</item>
+        <item>관광학과</item>
+        <item>컴퓨터공학과</item>
+        <item>정보전기전자공학과</item>
+        <item>통계데이터과학전공</item>
+        <item>소프트웨어전공</item>
+        <item>융합소프트웨어전공</item>
+        <item>도시정보공학전공</item>
+        <item>환경에너지공학전공</item>
+        <item>해양바이오공학전공</item>
+        <item>디지털미디어디자인전공</item>
+        <item>화장품발명디자인전공</item>
+        <item>식품영양학과</item>
     </string-array>
 </resources>

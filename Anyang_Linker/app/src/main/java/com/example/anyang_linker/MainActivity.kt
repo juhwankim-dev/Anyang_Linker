@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.anyang_linker.fragments.*
 import com.example.anyang_linker.fragments.home.HomeFragment
+import com.example.anyang_linker.fragments.setting.SettingsFragment
 import com.example.anyang_linker.fragments.study.StudyFragment
 import kotlinx.android.synthetic.main.activity_main.*
 

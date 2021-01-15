@@ -8,9 +8,6 @@ import android.view.ViewGroup
 
 import com.example.anyang_linker.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class MentoFragment : Fragment() {
 
     override fun onCreateView(
