@@ -29,12 +29,17 @@ class SettingsFragment : Fragment() {
         super.onStart()
 
         layout_certifyUniv.setOnClickListener {
-            var goCertifyUnivActivity = Intent(activity, CertifyUnivActivity::class.java)
-            startActivity(goCertifyUnivActivity)
+            //var goCertifyUnivActivity = Intent(activity, CertifyUnivActivity::class.java)
+            //startActivity(goCertifyUnivActivity)
         }
 
         layout_profileEdit.setOnClickListener {
             startActivityForResult(Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI), 0)
+        }
+
+        layout_badge.setOnClickListener {
+            var goBadgeActivity = Intent(activity, BadgeActivity::class.java)
+            startActivity(goBadgeActivity)
         }
 
         layout_pushSet.setOnClickListener {

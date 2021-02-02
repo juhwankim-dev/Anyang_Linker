@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_chatList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/profile" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_chatList_userId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="19 황예지"
+                android:textSize="15dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/txt_chatList_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="12dp"
+                android:text="대화 미리보기 창입니다." />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_chatList_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="오전 11:03"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#818181"
+            android:textSize="10dp" />
+    </LinearLayout>
+</LinearLayout>

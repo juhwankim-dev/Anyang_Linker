@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import androidx.viewpager2.widget.ViewPager2
 
 import com.example.anyang_linker.R
 import com.example.anyang_linker.SplashActivity
@@ -18,14 +21,24 @@ import com.example.anyang_linker.fragments.home.memo.AppDatabase
 import com.example.anyang_linker.fragments.home.memo.TodoActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.today_list_item.*
 
 class HomeFragment : Fragment(){
     lateinit var todoAdapter : ThisWeekAdapter
 
+    //뷰페이저 2
+    lateinit var viewPagerAdapter: BannerViewPagerAdapter
+    lateinit var viewModel: MainActivityViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
+        view.noticeLinearLayout.setOnClickListener { view ->
+            val goAllnoticesActivity = Intent(activity, AllNoticesActivity::class.java)
+            startActivity(goAllnoticesActivity)
+        }
+        /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
 
         /* ------------------------------ DB 읽어오기 -------------------------------*/
         val db = Room.databaseBuilder(
@@ -34,13 +47,6 @@ class HomeFragment : Fragment(){
         ).allowMainThreadQueries()
             .build()
         /* ------------------------------ DB 읽어오기 -------------------------------*/
-
-        /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
-        view.noticeLinearLayout.setOnClickListener { view ->
-            val goAllnoticesActivity = Intent(activity, AllNoticesActivity::class.java)
-            startActivity(goAllnoticesActivity)
-        }
-        /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
 
         /* ------------------------------ Adapter랑 Manager -------------------------------*/
         /* 뭔지 모르겠지만 Fragment에 Adapter추가하려면 해야하는거 */
@@ -53,13 +59,6 @@ class HomeFragment : Fragment(){
         thisWeekRecyclerView.adapter = todoAdapter // 어댑터 생성
         thisWeekRecyclerView.layoutManager = LinearLayoutManager(activity)
         /* ------------------------------ Adapter랑 Manager -------------------------------*/
-
-        /* ------------------------------ 플로팅 액션 버튼 -------------------------------*/
-        view.fab.setOnClickListener { view ->
-            var goTodoActivity = Intent(activity, TodoActivity::class.java)
-            startActivityForResult(goTodoActivity, 1)
-        }
-        /* ------------------------------ 플로팅 액션 버튼 -------------------------------*/
 
         return view
     }
@@ -75,17 +74,15 @@ class HomeFragment : Fragment(){
         txtMainNotice.text = str
         /* ------------------------------ 메인 공지 -------------------------------*/
 
-        /* ------------------------------ 바로 가기 -------------------------------*/
-        imgSubmitReport.setOnClickListener {
+        btn_editMemo.setOnClickListener {
+            val goMemoEditActivity = Intent(context, TodoActivity::class.java)
+            startActivityForResult(goMemoEditActivity, 0)
+        }
+
+        btn_submitReport.setOnClickListener {
             var goReport = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.kr/drive/apps.html"))
             startActivity(goReport);
         }
-
-        imgKakaoTalk.setOnClickListener {
-            var goKakao = Intent(Intent.ACTION_VIEW, Uri.parse("https://pf.kakao.com/_jxehRd"))
-            startActivity(goKakao);
-        }
-        /* ------------------------------ 바로 가기 -------------------------------*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -118,4 +115,50 @@ class HomeFragment : Fragment(){
             }
         }
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* ------------------------------ 배너 -------------------------------*/
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        viewModel.setBannerItems(
+            listOf(
+                BannerItem(R.drawable.banner1),
+                BannerItem(R.drawable.banner2),
+                BannerItem(R.drawable.banner3)
+            )
+        )
+        initViewPager2(txt_curPage)
+        subscribeObservers()
+        /* ------------------------------ 배너 -------------------------------*/
+    }
+
+    /* ------------------------------ 배너 -------------------------------*/
+    private fun initViewPager2(textview: TextView) {
+        viewPager2.apply {
+            viewPagerAdapter = BannerViewPagerAdapter()
+            adapter = viewPagerAdapter
+            registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    textview.text = "${position+1}"
+                }
+            })
+        }
+    }
+
+    private fun subscribeObservers() {
+        viewModel.bannerItemList.observe(this, Observer { bannerItemList ->
+            viewPagerAdapter.submitList(bannerItemList)
+        })
+    }
+    /* ------------------------------ 배너 -------------------------------*/
 }
+
+
+
+/* ------------------------------ 플로팅 액션 버튼 -------------------------------*/
+/*view.fab.setOnClickListener { view ->
+    var goTodoActivity = Intent(activity, TodoActivity::class.java)
+    startActivityForResult(goTodoActivity, 1)
+}*/
+/* ------------------------------ 플로팅 액션 버튼 -------------------------------*/

@@ -1,11 +1,39 @@
 <resources>
     <string name="app_name">Linker</string>
     <string name="title_home">홈</string>
-    <string name="title_study">신공재전</string>
+    <string name="title_study">스터디</string>
     <string name="title_mento">멘토링</string>
-    <string name="title_group">내그룹</string>
+    <string name="title_group">메신저</string>
     <string name="title_settings">설정</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sample1_string_class">
+        · 공부는 해야겠는데 의지가 부족하신 분들!\n· 이번 학기에 A+를 받고 싶은 분들!\n· 같이 공부하고 서로 도와주고 싶은 분들!\n· 친한 친구를 만들고 싶은 분들!\n· 전부 환영합니다!
+    </string>
+
+    <string name="sample2_string_class">저희 수업은 블라블라 쏴라라쏴라라 둠둠칫둠ㄷ두루루루 덩기덕 쿵더러러럭 쓸말이없네
+        안녕하세요 김주환입니다. 어쩜 이렇게 하늘은 더 파란건지 오늘 했던 실수가 별로였는지 그냥 모르는 척 그냥 못들은 척 지워버린척
+        딴 얘길 시작할까 아무말 어쩌구 시작할가아아ㅏ아 눈물이 차올라서 고갤들어 흐르지 못하게 또 살짝웃어 맞나 까먹었다
+        내게왜이러는지 무슨말을하는지 어쩌구 하늘위로 한번도 못했던말 어쩌면 하지못할 바로그말 둠둠칫 둠ㅊ둠ㅊ칫 나는요
+        둠둠칫 오빠가 둠둠칫 좋은거어어어어어어어어어얼 어떡해
+    </string>
+
+    <string name="introduce">안양캠퍼스 14028 경기 안양시 만안구 삼덕로37번길 22\n(안양동, 안양대학교) 안양대학교 TEL 031-467-0700\n강화캠퍼스 23038 인천광역시 강화군 불은면 중앙로 602-14\nTEL 032-930-6000</string>
+
+    <string name="introH1">공지 확인</string>
+    <string name="introH2">멘토 찾기</string>
+    <string name="introH3">단체 톡방</string>
+
+    <string name="introC1">멘토링 모집 소식을 빠르게\n푸시 알림으로 확인해보세요!</string>
+    <string name="introC2">내 시간표와 학과에 맞는 스터디를\n간편하게 찾고 한눈에 알아보아요!</string>
+    <string name="introC3">개인 SNS에서 공부 이야기는 그만!\n앱 안의 채팅기능을 이용해보세요</string>
+
+    <string name="register">회원가입</string>
+    <string name="login_email_hint">이메일</string>
+    <string name="login_password_hint">비밀번호</string>
+    <string name="signup_login_hint">이미 계정이 있으신가요?</string>
+    <string name="login_signup_hint">로그인</string>
+
 </resources>

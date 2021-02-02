@@ -12,11 +12,6 @@
         android:title="@string/title_study" />
 
     <item
-        android:id="@+id/navigation_mento"
-        android:icon="@drawable/ic_people_black_24dp"
-        android:title="@string/title_mento" />
-
-    <item
         android:id="@+id/navigation_group"
         android:icon="@drawable/ic_speaker_notes_black_24dp"
         android:title="@string/title_group" />

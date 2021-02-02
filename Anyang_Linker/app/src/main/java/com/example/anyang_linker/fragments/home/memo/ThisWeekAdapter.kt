@@ -1,12 +1,16 @@
 package com.example.anyang_linker.fragments.home
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.anyang_linker.R
@@ -53,6 +57,11 @@ class ThisWeekAdapter(val todos: List<Todo>) :
             else{
                 db.todoDao().updateByischecked(false, todos.get(position).title)
             }
+        }
+
+        holder.txtToDoToday.setOnLongClickListener {
+            Toast.makeText(it.context, "취소 기능을 만들 예정입니다.", Toast.LENGTH_SHORT).show()
+            true
         }
     }
 

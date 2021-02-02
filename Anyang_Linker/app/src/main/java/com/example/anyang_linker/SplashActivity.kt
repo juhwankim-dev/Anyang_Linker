@@ -4,6 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.anyang_linker.Intro.CertifyActivity
+import com.example.anyang_linker.Intro.IntroActivity
+import com.example.anyang_linker.Intro.LoginActivity
+import com.example.anyang_linker.Intro.RegisterActivity
 import com.example.anyang_linker.fragments.home.JsonPlaceHolderApi
 import com.example.anyang_linker.fragments.home.NoticeList
 import com.example.anyang_linker.fragments.home.Result
@@ -31,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         Handler().postDelayed({ //delay를 위한 handler
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, IntroActivity::class.java))
             finish()
         }, SPLASH_VIEW_TIME)
 

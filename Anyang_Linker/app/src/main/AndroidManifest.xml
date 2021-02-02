@@ -13,13 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragments.study.DepartmentSearchActivity"></activity>
-        <activity android:name=".fragments.study.StudySearchResultListActivity" />
+        <activity android:name=".Intro.CertifyActivity"></activity>
+        <activity android:name=".Intro.LoginActivity" />
+        <activity android:name=".Intro.RegisterActivity" />
+        <activity android:name=".Intro.IntroActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".fragments.talk.ChatActivity" />
+        <activity android:name=".fragments.setting.BadgeActivity" />
+        <activity android:name=".fragments.study.department.DepartmentSearchActivity" />
+        <activity android:name=".fragments.study.search.StudySearchResultRoomActivity" />
         <activity android:name=".fragments.setting.CertifyUnivActivity" />
         <activity android:name=".fragments.setting.PushSettingActivity" />
-        <activity android:name=".fragments.study.TimeSelectActivity" />
+        <activity android:name=".fragments.study.timetable.TimeSelectActivity" />
         <activity android:name=".fragments.home.WebViewActivity" />
-        <activity android:name=".fragments.study.AllStudiesActivity" />
+        <activity android:name=".fragments.study.search.StudySearchResultActivity" />
         <activity android:name=".fragments.home.memo.TodoActivity" />
         <activity android:name=".fragments.home.AllNoticesActivity" /> <!-- Splash Activity -->
         <activity

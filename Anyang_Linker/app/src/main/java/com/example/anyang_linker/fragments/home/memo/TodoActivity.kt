@@ -22,16 +22,20 @@ class TodoActivity : AppCompatActivity() {
 
         /* 추가버튼 클릭하면 */
         btn_todoAdd.setOnClickListener {
-            db.todoDao().insert(Todo(chkbox_todo.isChecked, editText_todoAdd.text.toString()))
+            db.todoDao().insert(Todo(false, editText_todoAdd.text.toString()))
             setResult(1)
             finish()
         }
 
+        btn_cancelMemo.setOnClickListener {
+            finish()
+        }
+
         /* 삭제버튼 클릭하면 */
-        btn_todoDel.setOnClickListener {
+/*        btn_todoDel.setOnClickListener {
             db.todoDao().deleteBytitle(editText_todoDel.text.toString())
             setResult(1)
             finish()
-        }
+        }*/
     }
 }

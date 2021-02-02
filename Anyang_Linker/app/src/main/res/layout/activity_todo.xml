@@ -1,76 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.home.memo.TodoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_cancelMemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/ic_clear_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="해야할 일 추가"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textSize="16dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/btn_todoAdd"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/border_blue_fill_round"
+            android:gravity="center"
+            android:text="저장"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/border_layout_bottom"
+        android:orientation="vertical"></LinearLayout>
 
     <EditText
         android:id="@+id/editText_todoAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="22dp"
+        android:inputType="textMultiLine"
+        android:lines="10"
         android:ems="10"
-        android:hint="메모를 입력하세요"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/btn_todoAdd"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkbox_todo" />
+        android:textSize="16dp"
+        android:padding="20dp"
+        android:gravity="top"
+        android:background="@null"
+        android:hint="해야할 일을 입력하세요."
+        android:scrollbars="vertical">
+        <requestFocus/>
+    </EditText>
 
-    <Button
-        android:id="@+id/btn_todoAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="추가"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText_todoAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText_todoAdd" />
-
-    <Button
-        android:id="@+id/btn_todoDel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:text="삭제"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText_todoDel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText_todoDel" />
-
-    <EditText
-        android:id="@+id/editText_todoDel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="73dp"
-        android:ems="10"
-        android:hint="삭제할 메모를 입력하세요"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/btn_todoDel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_todoAdd" />
-
-    <CheckBox
-        android:id="@+id/chkbox_todo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="99dp"
-        android:checked="false"
-        android:text="CheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="109dp"
-        android:text="디자인 구성중인 페이지 입니다"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_todoDel" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border_layout_bottom"
+        android:orientation="vertical"></LinearLayout>
+</LinearLayout>
