@@ -25,6 +25,7 @@ class DepartmentSearchActivity : AppCompatActivity() {
         /*if(department != ""){
             finish()// 리스트에서 학과를 선택한 경우 돌아감
         }*/
+        var flag = intent.getBooleanExtra("CalledByNewGroup", false)
 
         searchView_department.isIconified = false // 키보드 올라오게 하기
 
@@ -38,10 +39,7 @@ class DepartmentSearchActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean { // 데이터 값이 변할 경우
                 if(newText != ""){ // 입력한 글자에 맞는 결과 보여주기
                     val curList = items.filter { x -> x.contains(newText.toString()) }
-                    RecyclerView_departmentSearchResult.adapter =
-                        DepartmentSearchResultAdapter(
-                            curList
-                        )
+                    RecyclerView_departmentSearchResult.adapter = DepartmentSearchResultAdapter(curList, flag)
                     RecyclerView_departmentSearchResult.layoutManager = LinearLayoutManager(applicationContext)
                 }
 

@@ -3,6 +3,7 @@ package com.example.anyang_linker
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.anyang_linker.Intro.CertifyActivity
 import com.example.anyang_linker.Intro.IntroActivity
@@ -11,6 +12,13 @@ import com.example.anyang_linker.Intro.RegisterActivity
 import com.example.anyang_linker.fragments.home.JsonPlaceHolderApi
 import com.example.anyang_linker.fragments.home.NoticeList
 import com.example.anyang_linker.fragments.home.Result
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,8 +43,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         Handler().postDelayed({ //delay를 위한 handler
-            startActivity(Intent(this, IntroActivity::class.java))
-            finish()
+            autoLogin()
+            //finish()
         }, SPLASH_VIEW_TIME)
 
         /* ------------------------------ 게시글 POST 요청하기 -------------------------------*/
@@ -55,6 +63,25 @@ class SplashActivity : AppCompatActivity() {
 
         val thread = ThreadClass();
         thread.start();
+    }
+
+    private fun autoLogin(){
+        val pref = this.getSharedPreferences("login", 0)
+        val email: String = pref.getString("email", "default")!!
+        val password: String = pref.getString("password", "default")!!
+
+        var firebaseAuth: FirebaseAuth? = null
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth!!.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this,
+                OnCompleteListener<AuthResult?> { task ->
+                    if (task.isSuccessful) { // 로그인에 성공한 경우
+                        currentUserInfo() //  // 현재 로그인한 유저의 정보 전역변수로 선언
+                        startActivity(Intent(this, MainActivity::class.java))
+                    }else{
+                        startActivity(Intent(this, IntroActivity::class.java))
+                    }
+                })
     }
 
     inner class ThreadClass:Thread(){
@@ -129,5 +156,36 @@ class SplashActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    // 현재 로그인한 유저의 정보 전역변수로 업데이트
+    private fun currentUserInfo () {
+        MainActivity.currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+
+        val firebaseDatabase = FirebaseDatabase.getInstance() // 데이터베이스 생성
+        val databaseReference = firebaseDatabase.reference
+
+        databaseReference.child("user").child(MainActivity.currentUserID).addChildEventListener(object :
+            ChildEventListener {
+            override fun onChildAdded(
+                dataSnapshot: DataSnapshot,
+                s: String?
+            ) {
+                if(dataSnapshot.key == "userName"){
+                    MainActivity.currentUserName = dataSnapshot.value.toString()
+                }
+                else if(dataSnapshot.key == "userStudentNumber"){
+                    MainActivity.currentUserStudentNumber = dataSnapshot.value.toString()
+                }
+                else if(dataSnapshot.key == "userProfile"){
+                    MainActivity.currentUserProfile = dataSnapshot.value.toString()
+                }
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
     }
 }

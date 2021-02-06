@@ -1,7 +1,5 @@
 package com.example.anyang_linker.fragments.study
 
-class StudyRoom (val title: String, val subject: String, val grade: String, val maxPeople: String, val profile: String){
+class StudyRoom (val title: String, val subject: String, val grade: String, val people: String, val profile: String, var leaderUID: String, var groupUID: String){
 
 }
-
-// 제목, 과목, 학년, 정원, 프로필

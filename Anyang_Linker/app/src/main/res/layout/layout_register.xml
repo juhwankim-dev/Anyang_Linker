@@ -21,6 +21,34 @@
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputName"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/loginViewsMargin">
+            <EditText
+                android:id="@+id/editTextName"
+                style="@style/modifiedEditText"
+                android:hint="이름"
+                android:maxLines="1"
+                android:textSize="17dp"
+                android:nextFocusDown="@id/textInputStudentNumber"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputStudentNumber"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/loginViewsMargin">
+            <EditText
+                android:id="@+id/editTextStudentNumber"
+                style="@style/modifiedEditText"
+                android:hint="학번"
+                android:maxLines="1"
+                android:textSize="17dp"
+                android:nextFocusDown="@id/textInputEmail"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
@@ -30,6 +58,7 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textSize="17dp"
+                android:nextFocusDown="@id/textInputPassword"
                 android:hint="@string/login_email_hint"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,6 +70,20 @@
                 android:id="@+id/editTextPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
+                android:maxLines="1"
+                android:textSize="17dp"
+                android:nextFocusDown="@id/textInputPassword2"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassword2"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/loginViewsMargin">
+            <EditText
+                android:id="@+id/editTextPassword2"
+                style="@style/modifiedEditText"
+                android:hint="비밀번호 확인"
                 android:maxLines="1"
                 android:textSize="17dp"
                 android:inputType="textPassword"/>
@@ -71,10 +114,10 @@
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:gravity="center"
-            android:background="@drawable/border_blue_fill_round"
+            android:background="@drawable/border_gray_fill_round"
             android:text="다음"
+            android:enabled="false"
             android:layout_marginTop="40dp"/>
-
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

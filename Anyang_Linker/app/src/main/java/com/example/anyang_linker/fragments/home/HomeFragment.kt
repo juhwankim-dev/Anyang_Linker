@@ -14,11 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 
 import com.example.anyang_linker.R
 import com.example.anyang_linker.SplashActivity
 import com.example.anyang_linker.fragments.home.memo.AppDatabase
 import com.example.anyang_linker.fragments.home.memo.TodoActivity
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
@@ -35,8 +37,7 @@ class HomeFragment : Fragment(){
 
         /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
         view.noticeLinearLayout.setOnClickListener { view ->
-            val goAllnoticesActivity = Intent(activity, AllNoticesActivity::class.java)
-            startActivity(goAllnoticesActivity)
+            startActivity(Intent(activity, AllNoticesActivity::class.java))
         }
         /* ------------------------------ 더보기 클릭했을 때 -------------------------------*/
 
@@ -75,13 +76,11 @@ class HomeFragment : Fragment(){
         /* ------------------------------ 메인 공지 -------------------------------*/
 
         btn_editMemo.setOnClickListener {
-            val goMemoEditActivity = Intent(context, TodoActivity::class.java)
-            startActivityForResult(goMemoEditActivity, 0)
+            startActivityForResult(Intent(context, TodoActivity::class.java), 0)
         }
 
         btn_submitReport.setOnClickListener {
-            var goReport = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.kr/drive/apps.html"))
-            startActivity(goReport);
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.kr/drive/apps.html")));
         }
     }
 

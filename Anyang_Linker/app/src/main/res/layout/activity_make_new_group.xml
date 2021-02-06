@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.setting.newgroup.MakeNewGroupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_layout_bottom_bold"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="스터디 개설"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:padding="15dp"
+            android:text="완료" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/colorGray_toneDown"
+        android:orientation="vertical"></LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="70dp"
+                    android:text="과목"
+                    android:textColor="#424242"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editText_subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:layout_weight="1"
+                    android:hint="과목을 입력하세요."
+                    android:inputType="textPersonName"
+                    android:textSize="16dp">
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장소"
+                    android:layout_marginRight="70dp"
+                    android:textColor="#424242"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/editText_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:layout_weight="1"
+                    android:hint="장소를 입력하세요."
+                    android:inputType="textPersonName"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학과"
+                    android:layout_marginRight="70dp"
+                    android:textColor="#424242"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txt_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:hint="학과를 입력하세요."
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일정"
+                    android:textColor="#424242"
+                    android:layout_marginRight="70dp"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/txt_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:hint="일정을 입력하세요."
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/colorGray_toneDown"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학년"
+                    android:layout_marginRight="70dp"
+                    android:layout_gravity="center"
+                    android:textColor="#424242"
+                    android:textSize="14dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_left"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="1"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_center"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="2"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_center"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="3"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_right"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="4"
+                        android:textColor="@drawable/txt_segmented"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="인원"
+                    android:textColor="#424242"
+                    android:layout_marginRight="70dp"
+                    android:layout_gravity="center"
+                    android:textSize="14dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_people_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_left"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="3"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_people_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_center"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="4"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_people_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_center"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="5"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_people_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_right"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="6"
+                        android:textColor="@drawable/txt_segmented"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="종류"
+                    android:textColor="#424242"
+                    android:layout_marginRight="70dp"
+                    android:layout_gravity="center"
+                    android:textSize="14dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_type1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_left"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="신공재전"
+                        android:textColor="@drawable/txt_segmented" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_type2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_segmented_right"
+                        android:button="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="튜터링"
+                        android:textColor="@drawable/txt_segmented"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/colorGray_toneDown"
+                android:orientation="vertical"></LinearLayout>
+
+            <EditText
+                android:id="@+id/editText_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:ems="10"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray_round_for_newgrouptext"
+                android:scrollbars="vertical">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디에 대해 소개해 주세요!"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="11dp" />
+
+            <EditText
+                android:id="@+id/editText_introduce_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:ems="10"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray_round_for_newgrouptext"
+                android:scrollbars="vertical">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디를 진행하는 요일과 시간에 대해 적어주세요."
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="11dp" />
+
+            <EditText
+                android:id="@+id/editText_introduce_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:ems="10"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray_round_for_newgrouptext"
+                android:scrollbars="vertical">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디는 어디에서 진행되나요?"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="11dp" />
+
+            <EditText
+                android:id="@+id/editText_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="1"
+                android:ems="10"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray_round_for_newgrouptext"
+                android:scrollbars="vertical">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디 홍보 타이틀을 1줄 작성해주세요."
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="11dp" />
+
+            <EditText
+                android:id="@+id/editText_introduce_leader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="1"
+                android:ems="10"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                android:gravity="top"
+                android:background="@drawable/border_gray_round_for_newgrouptext"
+                android:scrollbars="vertical">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="마지막 리더의 한마디!"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

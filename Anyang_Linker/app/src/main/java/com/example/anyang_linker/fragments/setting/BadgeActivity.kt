@@ -17,11 +17,12 @@ class BadgeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_badge)
 
-        gridView = findViewById(R.id.gridView_badge)
+        //gridView = findViewById(R.id.gridView_badge)
         arrayList = ArrayList()
         arrayList = setDataList()
         badgeAdapter = BadgeAdapter(this, arrayList!!)
-        gridView?.adapter = badgeAdapter
+        gridView_badge?.adapter = badgeAdapter
+
     }
 
     private fun setDataList(): ArrayList<BadgeItem>{

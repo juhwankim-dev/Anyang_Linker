@@ -2,27 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.anyang_linker">
     <!-- 인터넷 접속 허락 받기 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 전화 걸기 허락 받기 -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_main"
+        android:icon="@mipmap/sample_logo4"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_main_round"
+        android:roundIcon="@mipmap/sample_logo4"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Intro.CertifyActivity"></activity>
+        <activity android:name=".fragments.setting.newgroup.MakeNewGroupActivity" />
+        <activity android:name=".fragments.setting.EditProfileActivity" />
+        <activity android:name=".Intro.CertifyActivity" />
         <activity android:name=".Intro.LoginActivity" />
         <activity android:name=".Intro.RegisterActivity" />
         <activity android:name=".Intro.IntroActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".fragments.talk.ChatActivity" />
         <activity android:name=".fragments.setting.BadgeActivity" />
         <activity android:name=".fragments.study.department.DepartmentSearchActivity" />
-        <activity android:name=".fragments.study.search.StudySearchResultRoomActivity" />
-        <activity android:name=".fragments.setting.CertifyUnivActivity" />
+        <activity android:name=".fragments.study.search.group.StudySearchResultRoomActivity" />
         <activity android:name=".fragments.setting.PushSettingActivity" />
         <activity android:name=".fragments.study.timetable.TimeSelectActivity" />
         <activity android:name=".fragments.home.WebViewActivity" />

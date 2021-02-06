@@ -35,7 +35,7 @@ class IntroActivity : AppCompatActivity() {
         }
 
         // 텍스트에 밑줄 넣기기
-       val mystring = "이미 아이디가 있으신가요?"
+        val mystring = "이미 아이디가 있으신가요?"
         val content = SpannableString(mystring)
         content.setSpan(UnderlineSpan(), 0, mystring.length, 0)
         btn_go_login_activity.setText(content)

@@ -3,6 +3,7 @@ package com.example.anyang_linker.fragments.home
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.anyang_linker.R
 import com.example.anyang_linker.SplashActivity.Companion.mainNotice
 import kotlinx.android.synthetic.main.activity_all_notices.*
@@ -21,7 +22,7 @@ class AllNoticesActivity : AppCompatActivity() {
 
         /* 매니저랑 어댑터 추가 */
         noticeRecyclerView.adapter = MyNoticeAdapter() // 어댑터 생성
-        noticeRecyclerView.layoutManager = LinearLayoutManager(this)
+        noticeRecyclerView.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         /* ------------------------------ Adapter랑 Manager -------------------------------*/
 
         imgBtnBackToHome.setOnClickListener {

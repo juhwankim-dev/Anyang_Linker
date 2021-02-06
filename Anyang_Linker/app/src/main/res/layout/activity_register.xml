@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     style="@style/loginParent"
+    android:id="@+id/layout_register"
     tools:context=".Intro.RegisterActivity">
     <ScrollView
         style="@style/parent">

@@ -46,10 +46,19 @@
         android:background="@color/colorGray_toneDown"
         android:orientation="vertical"></LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/studyRecyclerView"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="40dp"
+        app:tabIndicatorColor="#000000"
+        app:tabIndicatorHeight="1dp">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.viewpager2.widget.ViewPager2>
 
 </LinearLayout>

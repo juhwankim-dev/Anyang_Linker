@@ -4,11 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.example.anyang_linker.MainActivity
 import com.example.anyang_linker.R
 import com.example.anyang_linker.fragments.study.department.DepartmentSearchActivity
 import kotlinx.android.synthetic.main.fragment_study.*
@@ -54,10 +56,6 @@ class StudyFragment : Fragment() {
 
         btn_studySearch.setOnClickListener {
             //val goDepartmentSearchActivity = Intent(context, DepartmentSearchActivity::class.java)
-            startActivity(goDepartmentSearchActivity)
-        }
-
-        btn_mentoSearch.setOnClickListener {
             startActivity(goDepartmentSearchActivity)
         }
     }
