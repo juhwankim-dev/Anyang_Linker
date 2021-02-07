@@ -75,16 +75,18 @@ class TalkFragment : Fragment() {
                 dataSnapshot: DataSnapshot,
                 s: String?
             ) {
+                //Log.i("왜 못띄워", "@@@@@@@@@@")
 
                 if(chatList.contains(dataSnapshot.key)){
-
+                    //Log.i("야너두?", "@@@@@@@@@@")
                     var ampm = ""
                     var dateTime = ""
                     var message = ""
                     var myProfileUrl = ""
                     var userName = ""
 
-                    var lastChildNumber = dataSnapshot.childrenCount.toInt() - 1 // 가장 마지막 메시지 정보만 받아올거야
+                    // 2를 빼는 이유는 마지막 인덱스에 participants의 목록이 들어가기 때문이다.
+                    var lastChildNumber = dataSnapshot.childrenCount.toInt() - 2 // 가장 마지막 메시지 정보만 받아올거야
 
                     dataSnapshot.children.elementAt(lastChildNumber).children.forEach { // 마지막 메시지 정보 뽑기
                         when(it.key){

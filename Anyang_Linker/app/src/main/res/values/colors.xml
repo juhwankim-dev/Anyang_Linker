@@ -16,6 +16,7 @@
     <color name="mainBlue">#173190</color>
     <color name="kakao">#ffea35</color>
     <color name="kakaobc">#b2c7d9</color>
+    <color name="logoYellow">#fac14d</color>
 
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>

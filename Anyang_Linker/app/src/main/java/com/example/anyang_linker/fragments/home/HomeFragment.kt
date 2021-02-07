@@ -3,6 +3,7 @@ package com.example.anyang_linker.fragments.home
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,9 +21,19 @@ import com.example.anyang_linker.R
 import com.example.anyang_linker.SplashActivity
 import com.example.anyang_linker.fragments.home.memo.AppDatabase
 import com.example.anyang_linker.fragments.home.memo.TodoActivity
+import com.example.anyang_linker.fragments.push.NotificationData
+import com.example.anyang_linker.fragments.push.PushNotification
+import com.example.anyang_linker.fragments.push.RetrofitInstance
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.storage.FirebaseStorage
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(){
     lateinit var todoAdapter : ThisWeekAdapter
