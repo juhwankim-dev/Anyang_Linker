@@ -15,10 +15,10 @@ class CertifyViewPagerAdapter(private val context : Context) : PagerAdapter() {
     private var layoutInflater : LayoutInflater? = null
 
     val item = arrayListOf<ExtraStudyItem>(
-        ExtraStudyItem("저희와 같이 장학금을 타실분!", R.drawable.profile),
-        ExtraStudyItem("테스트", R.drawable.profile),
-        ExtraStudyItem("테스트", R.drawable.profile),
-        ExtraStudyItem("테스트", R.drawable.profile)
+        ExtraStudyItem("저희와 같이 장학금을 타실분!", R.drawable.profile, "임시"),
+        ExtraStudyItem("테스트", R.drawable.profile,"임시"),
+        ExtraStudyItem("테스트", R.drawable.profile,"임시"),
+        ExtraStudyItem("테스트", R.drawable.profile,"임시")
     )
     /*val Image = arrayOf(
         R.drawable.banner3,

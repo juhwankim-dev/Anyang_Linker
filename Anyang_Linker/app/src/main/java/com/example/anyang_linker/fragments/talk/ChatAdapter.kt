@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.anyang_linker.MainActivity
 import com.example.anyang_linker.MainActivity.Companion.currentUserID
 import com.example.anyang_linker.MainActivity.Companion.currentUserName
 import com.example.anyang_linker.R
@@ -85,7 +86,7 @@ class ChatAdapter(
 
     override fun getItemViewType(position: Int): Int {//여기서 뷰타입을 1, 2로 바꿔서 지정해줘야 내채팅 너채팅을 바꾸면서 쌓을 수 있음
         //내 아이디와 arraylist의 name이 같다면 내꺼 아니면 상대꺼
-        return if (arrayList.get(position).userName == currentUserName){
+        return if (arrayList.get(position).userName == MainActivity.currentUserStudentNumber.substring(2, 4) + " " + currentUserName){
             1
         } else {
             2

@@ -87,7 +87,8 @@ class TalkFragment : Fragment() {
 
                     // 2를 빼는 이유는 마지막 인덱스에 participants의 목록이 들어가기 때문이다.
                     var lastChildNumber = dataSnapshot.childrenCount.toInt() - 2 // 가장 마지막 메시지 정보만 받아올거야
-
+                    Log.i("머죠", lastChildNumber.toString())
+                    Log.i("머죠2", dataSnapshot.children.elementAt(lastChildNumber).value.toString())
                     dataSnapshot.children.elementAt(lastChildNumber).children.forEach { // 마지막 메시지 정보 뽑기
                         when(it.key){
                             "ampm" -> ampm = it.value.toString()
@@ -99,7 +100,7 @@ class TalkFragment : Fragment() {
                     }
 
                     previewList.add(ChatListItem(ampm, dateTime, message, myProfileUrl, userName, dataSnapshot.key)) // dataSnapshot.key == chatUID
-
+                    Log.i("엥", previewList.toString())
                     recyclerView_chatList.adapter = ChatListAdatper(previewList)
                     recyclerView_chatList.layoutManager = LinearLayoutManager(context)
                 }

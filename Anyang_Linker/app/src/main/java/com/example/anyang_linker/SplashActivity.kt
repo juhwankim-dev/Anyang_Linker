@@ -101,12 +101,13 @@ class SplashActivity : AppCompatActivity() {
         * */
         data["menuId"] = "23"
         data["bsIdx"] = "61"
-        data["searchCondition"] = "SUBJECT"
-        data["searchKeyword"] = "ACE"
+        //data["searchCondition"] = "SUBJECT"
+        //data["searchKeyword"] = "ACE"
+        data["bcIdx"] = "20"
 
         // Retrofit에서 만들어놓은 Call이라는 클래스를 사용해서 객체를 하나 만들꺼야.
         // JsonApi랑... map.... 을 이용해서 말이지... map에 .. 아..아니야... 포스트에보낼 데이터 같은게 들어있어...
-        val call: Call<Result?>? = jsonPlaceHolderApi?.createPost(data)
+        val call: Call<Result?>? = jsonPlaceHolderApi?.boardListPost(data)
 
         /* .. Call.enquere를.. 정의해줄..거야.. */
         if (call != null) {

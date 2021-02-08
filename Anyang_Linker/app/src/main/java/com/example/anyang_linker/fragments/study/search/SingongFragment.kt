@@ -71,7 +71,8 @@ class SingongFragment() : Fragment() {
                         val title = map["title"].toString()
                         val subject = map["subject"].toString()
                         val people = map["people"].toString()
-                        val profile = "https://firebasestorage.googleapis.com/v0/b/anyanglinker.appspot.com/o/profile.png?alt=media&token=a8c36e85-b7c6-495a-b627-866bd9772bb5"
+                        val leaderProfileUrl = map["leaderProfileUrl"].toString()
+                        //val profile = "https://firebasestorage.googleapis.com/v0/b/anyanglinker.appspot.com/o/profile.png?alt=media&token=a8c36e85-b7c6-495a-b627-866bd9772bb5"
                         val leaderUID = map["leaderUID"].toString()
 
                         studyrooms.add(
@@ -80,7 +81,7 @@ class SingongFragment() : Fragment() {
                                     subject,
                                     grade,
                                     people,
-                                    profile,
+                                    leaderProfileUrl,
                                     leaderUID,
                                     it.ref.key!!
                                 )
@@ -105,4 +106,5 @@ class SingongFragment() : Fragment() {
         }
         return false
     }
+
 }

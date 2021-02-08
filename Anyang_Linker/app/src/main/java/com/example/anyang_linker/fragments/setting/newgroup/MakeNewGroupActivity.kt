@@ -10,11 +10,14 @@ import android.widget.CheckBox
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.anyang_linker.MainActivity.Companion.currentUserID
+import com.example.anyang_linker.MainActivity.Companion.currentUserProfile
+import com.example.anyang_linker.MainActivity.Companion.currentUserStudentNumber
 import com.example.anyang_linker.R
 import com.example.anyang_linker.fragments.study.department.DepartmentSearchActivity
 import com.example.anyang_linker.fragments.study.timetable.TimeSelectActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_make_new_group.*
 
 class MakeNewGroupActivity : AppCompatActivity() {
@@ -22,10 +25,14 @@ class MakeNewGroupActivity : AppCompatActivity() {
     var grade: String? = null
     var people: String? = null
     var type: String? = null
+    var currentUseProfileUrl = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_make_new_group)
+
+        // 현재 유저의 프로필 url을 가져옴
+        loadCurrentUserProfileUrl()
 
         // 완료 버튼 클릭
         text_finish.setOnClickListener {
@@ -85,11 +92,17 @@ class MakeNewGroupActivity : AppCompatActivity() {
         var introduce_leader= editText_introduce_leader.text.toString()
         var title= editText_title.text.toString()
 
-        var groupInfo = GroupDTO(leaderUID, subject, place, department, date, grade, people, type, introduce, introduce_date, introduce_place, introduce_leader, title)
+        var groupInfo = GroupDTO(leaderUID, subject, place, department, date, grade, people, type, introduce, introduce_date, introduce_place, introduce_leader, title, currentUseProfileUrl, currentUserStudentNumber)
 
         var databaseReference = FirebaseDatabase.getInstance().reference
         databaseReference.child("group").push().setValue(groupInfo)
         Toast.makeText(this, "정상적으로 신청되었습니다.", Toast.LENGTH_SHORT).show()
+    }
+
+    fun loadCurrentUserProfileUrl(){
+        FirebaseStorage.getInstance().reference.child("images").child(currentUserProfile).downloadUrl.addOnSuccessListener {
+            currentUseProfileUrl = it.toString()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

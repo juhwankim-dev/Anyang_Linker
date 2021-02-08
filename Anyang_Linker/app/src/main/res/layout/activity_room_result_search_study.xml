@@ -48,7 +48,7 @@
         android:orientation="vertical"></LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/img_group_leader_profile"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
@@ -65,7 +65,7 @@
         android:textColor="#000000" />
 
     <TextView
-        android:id="@+id/textView47"
+        android:id="@+id/txt_group_student_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="20143101 김주환"

@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.bumptech.glide.Glide
 import com.example.anyang_linker.R
 import com.example.anyang_linker.fragments.talk.ChatActivity
 import com.google.android.material.tabs.TabLayoutMediator
@@ -51,6 +52,8 @@ class StudySearchResultRoomActivity : AppCompatActivity() {
             ) {
                 when(dataSnapshot.key){
                     // title은 여기 액티비티의 xml이라 바로 수정 가능
+                    "leaderProfileUrl" -> Glide.with(applicationContext).load(dataSnapshot.value.toString()).circleCrop().override(60,60).into(img_group_leader_profile)
+                    "leaderStudentNumber" -> txt_group_student_number.text = dataSnapshot.value.toString() + " 김주환"
                     "title" -> txt_group_title.text = dataSnapshot.value.toString()
 
                     // 나머지는 map에 담아 각각의 fragment로 보낸다.

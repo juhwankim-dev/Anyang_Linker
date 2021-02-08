@@ -30,6 +30,7 @@ class TutorAdapter(studyrooms: ArrayList<StudyRoom>) : RecyclerView.Adapter<Tuto
             .load(studyrooms.get(position).profile)
             .override(60,60)
             .into(holder.profile)*/
+        Glide.with(holder.itemView.context).load(studyrooms.get(position).leaderProfileUrl).circleCrop().override(60,60).into(holder.profile)
 
         holder.title.text = studyrooms.get(position).title
         holder.subject.text = studyrooms.get(position).subject

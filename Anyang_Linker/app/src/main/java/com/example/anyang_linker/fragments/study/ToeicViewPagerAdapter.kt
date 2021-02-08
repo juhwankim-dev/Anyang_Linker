@@ -15,10 +15,10 @@ class ToeicViewPagerAdapter(private val context : Context) : PagerAdapter() {
     private var layoutInflater : LayoutInflater? = null
 
     val item = arrayListOf<ExtraStudyItem>(
-        ExtraStudyItem("이렇게도 할 수 있으려나요!", R.drawable.baro_kakao),
-        ExtraStudyItem("테스트", R.drawable.profile),
-        ExtraStudyItem("테스트", R.drawable.profile),
-        ExtraStudyItem("테스트", R.drawable.profile)
+        ExtraStudyItem("이렇게도 할 수 있으려나요!", R.drawable.profile2,"임시"),
+        ExtraStudyItem("테스트", R.drawable.profile3,"임시"),
+        ExtraStudyItem("테스트", R.drawable.profile,"임시"),
+        ExtraStudyItem("테스트", R.drawable.profile,"임시")
     )
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {

@@ -14,10 +14,12 @@ class GroupDTO {
     var introduce_place: String? = null
     var introduce_leader: String? = null
     var title: String? = null
+    var leaderProfileUrl: String? = null
+    var leaderStudentNumber: String? = null
 
     constructor() {}
     constructor(leaderUID: String?, subject: String?, place: String?, department: String?, date: String?, grade: String?, people: String?, type: String?,
-                introduce: String?, introduce_date: String?, introduce_place: String?, introduce_leader: String?, title: String?) {
+                introduce: String?, introduce_date: String?, introduce_place: String?, introduce_leader: String?, title: String?, leaderProfileUrl: String?, leaderStudentNumber: String?) {
         this.leaderUID = leaderUID
         this.subject = subject
         this.place = place
@@ -31,5 +33,7 @@ class GroupDTO {
         this.introduce_place = introduce_place
         this.introduce_leader = introduce_leader
         this.title = title
+        this.leaderProfileUrl = leaderProfileUrl
+        this.leaderStudentNumber = leaderStudentNumber
     }
 }

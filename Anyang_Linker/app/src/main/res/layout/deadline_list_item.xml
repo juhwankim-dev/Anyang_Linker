@@ -23,7 +23,7 @@
         android:layout_marginLeft="30dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="인공지능"

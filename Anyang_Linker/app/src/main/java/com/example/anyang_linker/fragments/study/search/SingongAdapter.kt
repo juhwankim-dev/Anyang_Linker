@@ -26,10 +26,12 @@ class SingongAdapter(studyrooms: ArrayList<StudyRoom>) : RecyclerView.Adapter<Si
 
     override fun onBindViewHolder(holder: MyStudyViewHolder, position: Int) {
         /* Glide 라이브러리를 이용해 인터넷을 통해 사진 가져오기 */
-        Glide.with(holder.itemView)
+/*        Glide.with(holder.itemView)
             .load(studyrooms.get(position).profile)
             .override(60,60)
-            .into(holder.profile)
+            .into(holder.profile)*/
+
+        Glide.with(holder.itemView.context).load(studyrooms.get(position).leaderProfileUrl).circleCrop().override(60,60).into(holder.profile)
 
         holder.title.text = studyrooms.get(position).title
         holder.subject.text = studyrooms.get(position).subject

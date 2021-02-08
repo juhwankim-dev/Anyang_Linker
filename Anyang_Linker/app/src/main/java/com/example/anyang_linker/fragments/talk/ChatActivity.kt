@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.anyang_linker.MainActivity.Companion.currentUserID
 import com.example.anyang_linker.MainActivity.Companion.currentUserName
 import com.example.anyang_linker.MainActivity.Companion.currentUserProfile
+import com.example.anyang_linker.MainActivity.Companion.currentUserStudentNumber
 import com.example.anyang_linker.R
 import com.example.anyang_linker.fragments.push.*
 import com.google.firebase.auth.FirebaseAuth
@@ -80,7 +81,7 @@ class ChatActivity : AppCompatActivity() {
                 val getTime2 = sdf2.format(date) // 오전 오후
                 val message = chating_Text!!.text.toString()
 
-                val chat = ChatDTO(currentUserName, message, getTime2, getTime, myProfileUrl) //ChatDTO를 이용하여 데이터를 묶는다.
+                val chat = ChatDTO(currentUserStudentNumber.substring(2, 4) + " " + currentUserName, message, getTime2, getTime, myProfileUrl) //ChatDTO를 이용하여 데이터를 묶는다.
                 databaseReference.child("chat").child(chatUID!!).push().setValue(chat) // 데이터 푸쉬
                 chating_Text!!.setText("") //입력창 초기화
 
@@ -100,14 +101,12 @@ class ChatActivity : AppCompatActivity() {
         chat_recyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
 
         // 데이터 받아오기 및 어댑터 데이터 추가 및 삭제 등..리스너 관리
-        databaseReference.child("chat").child(chatUID!!)
+        databaseReference.child("chat")
             .addChildEventListener(object : ChildEventListener {
                 override fun onChildAdded( // 리스너를 처음 사용할때 혹은 데이터 추가 했을 때 할거
                     dataSnapshot: DataSnapshot,
                     s: String?
                 ) {
-                    Log.i("이게뭐로나오냐", dataSnapshot.children.toString())
-                    Log.i("자식이 있는걸로 나옵니까?", dataSnapshot.childrenCount.toString())
                     if(dataSnapshot.childrenCount.toInt() != 2){
                         val chatDTO = dataSnapshot.getValue(ChatDTO::class.java)!!
                         mAdapter.addItem(chatDTO)
@@ -116,9 +115,7 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {}
-                override fun onChildRemoved(dataSnapshot: DataSnapshot) {
-                    //removeMessage(dataSnapshot, mAdapter)
-                }
+                override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
                 override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
                 override fun onCancelled(databaseError: DatabaseError) {}
             })
@@ -145,7 +142,6 @@ class ChatActivity : AppCompatActivity() {
                 s: String?
             ) {
                 if(dataSnapshot.value.toString() != currentUserID){
-                    Log.i("너는 왜 안들어와", message)
                     FcmPush.instance.sendMessage(dataSnapshot.value.toString(), currentUserName + "님이 메시지를 보냈습니다", message)
                 }
             }
